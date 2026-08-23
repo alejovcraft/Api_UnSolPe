@@ -7,7 +7,5 @@ import com.example.demo.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    // Spring Data JPA crea los métodos mágicamente.
-    // Aquí puedes agregar métodos personalizados luego, como:
-    // Optional<Usuario> findByCorreo(String correo);
+	Usuario findByCorreoAndContraseña(String correo, String contrasena);
 }
