@@ -10,6 +10,6 @@ import com.example.demo.model.Movimiento;
 public interface MovimientoRepository extends JpaRepository<Movimiento, Integer>  {
 	// Ojo: Asegúrate de que "id_usuario" coincida exactamente con cómo 
     // se llama la variable en tu clase Movimiento.java
-    @Query("SELECT m FROM Movimiento m WHERE m.id_usuario = ?1")
+	@Query("SELECT m FROM Movimiento m WHERE m.usuario.id_usuario = ?1")
     List<Movimiento> buscarPorIdUsuario(Integer idUsuario);
 }

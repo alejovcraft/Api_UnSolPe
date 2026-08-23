@@ -24,14 +24,14 @@ public class Movimiento {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private Usuario usuario; //[cite: 5]
+    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false)
     private Categoria categoria; //[cite: 5]
 
     @Column(name = "tipo_movimiento", nullable = false)
-    private String tipoMovimiento; // 'Ingreso' o 'Gasto'[cite: 5]
+    private String tipoMovimiento; // 'Ingreso' o 'Gasto'[cite: 5]a
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal monto; //[cite: 5]

@@ -26,8 +26,7 @@ public class MovimientoController {
     }
     @GetMapping("/usuario/{idUsuario}")
     public List<Movimiento> obtenerMovimientosPorUsuario(@PathVariable Integer idUsuario) {
-        // Necesitas este método en tu MovimientoRepository
-    	return movimientoRepository.buscarPorIdUsuario(idUsuario);
+        return movimientoRepository.buscarPorIdUsuario(idUsuario);
     }
 
     @PostMapping
