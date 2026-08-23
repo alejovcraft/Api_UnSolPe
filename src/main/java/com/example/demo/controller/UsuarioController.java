@@ -24,17 +24,15 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUsuario(@RequestBody Map<String, String> credenciales) {
         String correo = credenciales.get("correo");
-        String contrasena = credenciales.get("contraseña"); // Respetamos la "ñ" que envía Swift
+        String contrasena = credenciales.get("contraseña"); 
         
-        // AQUÍ NECESITAS BUSCAR EN LA BASE DE DATOS
-        // Asumiendo que creaste un método en tu UsuarioRepository para buscar por ambas cosas:
-        Usuario usuario = usuarioRepository.findByCorreoAndContraseña(correo, contrasena);
+        Usuario usuario = usuarioRepository.buscarPorCorreoYContrasena(correo, contrasena);
         
         if (usuario != null) {
-            // Si el usuario existe, respondemos con código 200 (OK)
+  
             return ResponseEntity.ok(usuario); 
         } else {
-            // Si no existe o la contraseña está mal, respondemos con código 401 (No autorizado)
+    
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Correo o contraseña incorrectos");
         }
     }
